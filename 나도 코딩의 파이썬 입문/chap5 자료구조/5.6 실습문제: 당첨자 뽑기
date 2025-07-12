@@ -1,0 +1,30 @@
+#version1
+from random import * #이거 하는거 잊지 않기!
+
+id=list(range(1,21)) # 다 적지 않고 range로 한 다음 list로 만들어버려
+shuffle(id)
+chicken=sample(id,1)
+remain=set(id)-set(chicken)
+remain=list(remain)
+coffee=sample(list(remain),3)
+print("-- 당첨자 발표--\n치킨 당첨자 :",chicken[0],"\n커피 당첨자 :",
+      coffee,"\n-- 축하합니다! --") #인덱스로 출력
+
+#version2
+from random import *
+id=range(1,21)
+id=list(id)
+shuffle(id)
+winners=sample(id,4) #아예 4명을 뽑아버려
+print("-- 당첨자 발표 --")
+print("치킨 당첨자: {0}".format(winners[0])) #{0}.format 사용해서 인덱스로
+print("커피 당첨자: {0}".format(winners[1:]))
+print("-- 축하합니다! --")
+
+#참고함수
+from random import * #*은 모든 기능을 가져오겠다는 뜻
+lst=[1,2,3,4,5]
+print(lst) #원본 리스트 출력
+shuffle(lst) #리스트 섞기
+print(lst) #섞은 후 리스트 출력
+print(sample(lst,1)) #리스트에서 값 1개를 무작위로 뽑기
